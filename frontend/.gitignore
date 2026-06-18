@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+dist-ssr/
+
+# vite / vitest cache
+.vite/
+coverage/
+
+# logs
+*.log
+
+# editor / os
+.DS_Store

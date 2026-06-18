@@ -1,0 +1,5285 @@
+{
+  "venueId": "getmyseat-arena",
+  "name": "GetMySeat Arena (sample)",
+  "currency": "USD",
+  "map": {
+    "width": 1280,
+    "height": 1040
+  },
+  "priceTiers": [
+    {
+      "id": "tier-floor",
+      "label": "Floor",
+      "priceCents": 28000,
+      "color": "#6366f1"
+    },
+    {
+      "id": "tier-lower",
+      "label": "Lower bowl",
+      "priceCents": 18000,
+      "color": "#0ea5e9"
+    },
+    {
+      "id": "tier-upper",
+      "label": "Upper bowl",
+      "priceCents": 9000,
+      "color": "#10b981"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec-a",
+      "label": "Section A",
+      "rows": [
+        {
+          "id": "sec-a-row-1",
+          "label": "A",
+          "seats": [
+            {
+              "id": "sec-a-A-1",
+              "label": "1",
+              "x": 120,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-2",
+              "label": "2",
+              "x": 146,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-3",
+              "label": "3",
+              "x": 172,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-4",
+              "label": "4",
+              "x": 198,
+              "y": 120,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-5",
+              "label": "5",
+              "x": 224,
+              "y": 120,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-6",
+              "label": "6",
+              "x": 250,
+              "y": 120,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-7",
+              "label": "7",
+              "x": 276,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-8",
+              "label": "8",
+              "x": 302,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-9",
+              "label": "9",
+              "x": 328,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-10",
+              "label": "10",
+              "x": 354,
+              "y": 120,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-11",
+              "label": "11",
+              "x": 380,
+              "y": 120,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-12",
+              "label": "12",
+              "x": 406,
+              "y": 120,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-13",
+              "label": "13",
+              "x": 432,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-14",
+              "label": "14",
+              "x": 458,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-15",
+              "label": "15",
+              "x": 484,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-16",
+              "label": "16",
+              "x": 510,
+              "y": 120,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-17",
+              "label": "17",
+              "x": 536,
+              "y": 120,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-A-18",
+              "label": "18",
+              "x": 562,
+              "y": 120,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            }
+          ]
+        },
+        {
+          "id": "sec-a-row-2",
+          "label": "B",
+          "seats": [
+            {
+              "id": "sec-a-B-1",
+              "label": "1",
+              "x": 120,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-2",
+              "label": "2",
+              "x": 146,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-3",
+              "label": "3",
+              "x": 172,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-4",
+              "label": "4",
+              "x": 198,
+              "y": 150,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-5",
+              "label": "5",
+              "x": 224,
+              "y": 150,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-6",
+              "label": "6",
+              "x": 250,
+              "y": 150,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-7",
+              "label": "7",
+              "x": 276,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-8",
+              "label": "8",
+              "x": 302,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-9",
+              "label": "9",
+              "x": 328,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-10",
+              "label": "10",
+              "x": 354,
+              "y": 150,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-11",
+              "label": "11",
+              "x": 380,
+              "y": 150,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-12",
+              "label": "12",
+              "x": 406,
+              "y": 150,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-13",
+              "label": "13",
+              "x": 432,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-14",
+              "label": "14",
+              "x": 458,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-15",
+              "label": "15",
+              "x": 484,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-16",
+              "label": "16",
+              "x": 510,
+              "y": 150,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-17",
+              "label": "17",
+              "x": 536,
+              "y": 150,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-B-18",
+              "label": "18",
+              "x": 562,
+              "y": 150,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            }
+          ]
+        },
+        {
+          "id": "sec-a-row-3",
+          "label": "C",
+          "seats": [
+            {
+              "id": "sec-a-C-1",
+              "label": "1",
+              "x": 120,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-2",
+              "label": "2",
+              "x": 146,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-3",
+              "label": "3",
+              "x": 172,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-4",
+              "label": "4",
+              "x": 198,
+              "y": 180,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-5",
+              "label": "5",
+              "x": 224,
+              "y": 180,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-6",
+              "label": "6",
+              "x": 250,
+              "y": 180,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-7",
+              "label": "7",
+              "x": 276,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-8",
+              "label": "8",
+              "x": 302,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-9",
+              "label": "9",
+              "x": 328,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-10",
+              "label": "10",
+              "x": 354,
+              "y": 180,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-11",
+              "label": "11",
+              "x": 380,
+              "y": 180,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-12",
+              "label": "12",
+              "x": 406,
+              "y": 180,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-13",
+              "label": "13",
+              "x": 432,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-14",
+              "label": "14",
+              "x": 458,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-15",
+              "label": "15",
+              "x": 484,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-16",
+              "label": "16",
+              "x": 510,
+              "y": 180,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-17",
+              "label": "17",
+              "x": 536,
+              "y": 180,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-C-18",
+              "label": "18",
+              "x": 562,
+              "y": 180,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            }
+          ]
+        },
+        {
+          "id": "sec-a-row-4",
+          "label": "D",
+          "seats": [
+            {
+              "id": "sec-a-D-1",
+              "label": "1",
+              "x": 120,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-2",
+              "label": "2",
+              "x": 146,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-3",
+              "label": "3",
+              "x": 172,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-4",
+              "label": "4",
+              "x": 198,
+              "y": 210,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-5",
+              "label": "5",
+              "x": 224,
+              "y": 210,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-6",
+              "label": "6",
+              "x": 250,
+              "y": 210,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-7",
+              "label": "7",
+              "x": 276,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-8",
+              "label": "8",
+              "x": 302,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-9",
+              "label": "9",
+              "x": 328,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-10",
+              "label": "10",
+              "x": 354,
+              "y": 210,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-11",
+              "label": "11",
+              "x": 380,
+              "y": 210,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-12",
+              "label": "12",
+              "x": 406,
+              "y": 210,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-13",
+              "label": "13",
+              "x": 432,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-14",
+              "label": "14",
+              "x": 458,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-15",
+              "label": "15",
+              "x": 484,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-16",
+              "label": "16",
+              "x": 510,
+              "y": 210,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-17",
+              "label": "17",
+              "x": 536,
+              "y": 210,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-D-18",
+              "label": "18",
+              "x": 562,
+              "y": 210,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            }
+          ]
+        },
+        {
+          "id": "sec-a-row-5",
+          "label": "E",
+          "seats": [
+            {
+              "id": "sec-a-E-1",
+              "label": "1",
+              "x": 120,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-2",
+              "label": "2",
+              "x": 146,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-3",
+              "label": "3",
+              "x": 172,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-4",
+              "label": "4",
+              "x": 198,
+              "y": 240,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-5",
+              "label": "5",
+              "x": 224,
+              "y": 240,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-6",
+              "label": "6",
+              "x": 250,
+              "y": 240,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-7",
+              "label": "7",
+              "x": 276,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-8",
+              "label": "8",
+              "x": 302,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-9",
+              "label": "9",
+              "x": 328,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-10",
+              "label": "10",
+              "x": 354,
+              "y": 240,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-11",
+              "label": "11",
+              "x": 380,
+              "y": 240,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-12",
+              "label": "12",
+              "x": 406,
+              "y": 240,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-13",
+              "label": "13",
+              "x": 432,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-14",
+              "label": "14",
+              "x": 458,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-15",
+              "label": "15",
+              "x": 484,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-16",
+              "label": "16",
+              "x": 510,
+              "y": 240,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-17",
+              "label": "17",
+              "x": 536,
+              "y": 240,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-E-18",
+              "label": "18",
+              "x": 562,
+              "y": 240,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            }
+          ]
+        },
+        {
+          "id": "sec-a-row-6",
+          "label": "F",
+          "seats": [
+            {
+              "id": "sec-a-F-1",
+              "label": "1",
+              "x": 120,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-2",
+              "label": "2",
+              "x": 146,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-3",
+              "label": "3",
+              "x": 172,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-4",
+              "label": "4",
+              "x": 198,
+              "y": 270,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-5",
+              "label": "5",
+              "x": 224,
+              "y": 270,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-6",
+              "label": "6",
+              "x": 250,
+              "y": 270,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-7",
+              "label": "7",
+              "x": 276,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-8",
+              "label": "8",
+              "x": 302,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-9",
+              "label": "9",
+              "x": 328,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-10",
+              "label": "10",
+              "x": 354,
+              "y": 270,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-11",
+              "label": "11",
+              "x": 380,
+              "y": 270,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-12",
+              "label": "12",
+              "x": 406,
+              "y": 270,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-13",
+              "label": "13",
+              "x": 432,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-14",
+              "label": "14",
+              "x": 458,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-15",
+              "label": "15",
+              "x": 484,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-16",
+              "label": "16",
+              "x": 510,
+              "y": 270,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-17",
+              "label": "17",
+              "x": 536,
+              "y": 270,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-F-18",
+              "label": "18",
+              "x": 562,
+              "y": 270,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            }
+          ]
+        },
+        {
+          "id": "sec-a-row-7",
+          "label": "G",
+          "seats": [
+            {
+              "id": "sec-a-G-1",
+              "label": "1",
+              "x": 120,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-2",
+              "label": "2",
+              "x": 146,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-3",
+              "label": "3",
+              "x": 172,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-4",
+              "label": "4",
+              "x": 198,
+              "y": 300,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-5",
+              "label": "5",
+              "x": 224,
+              "y": 300,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-6",
+              "label": "6",
+              "x": 250,
+              "y": 300,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-7",
+              "label": "7",
+              "x": 276,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-8",
+              "label": "8",
+              "x": 302,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-9",
+              "label": "9",
+              "x": 328,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-10",
+              "label": "10",
+              "x": 354,
+              "y": 300,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-11",
+              "label": "11",
+              "x": 380,
+              "y": 300,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-12",
+              "label": "12",
+              "x": 406,
+              "y": 300,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-13",
+              "label": "13",
+              "x": 432,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-14",
+              "label": "14",
+              "x": 458,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-15",
+              "label": "15",
+              "x": 484,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-16",
+              "label": "16",
+              "x": 510,
+              "y": 300,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-17",
+              "label": "17",
+              "x": 536,
+              "y": 300,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-G-18",
+              "label": "18",
+              "x": 562,
+              "y": 300,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            }
+          ]
+        },
+        {
+          "id": "sec-a-row-8",
+          "label": "H",
+          "seats": [
+            {
+              "id": "sec-a-H-1",
+              "label": "1",
+              "x": 120,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-2",
+              "label": "2",
+              "x": 146,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-3",
+              "label": "3",
+              "x": 172,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-4",
+              "label": "4",
+              "x": 198,
+              "y": 330,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-5",
+              "label": "5",
+              "x": 224,
+              "y": 330,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-6",
+              "label": "6",
+              "x": 250,
+              "y": 330,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-7",
+              "label": "7",
+              "x": 276,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-8",
+              "label": "8",
+              "x": 302,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-9",
+              "label": "9",
+              "x": 328,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-10",
+              "label": "10",
+              "x": 354,
+              "y": 330,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-11",
+              "label": "11",
+              "x": 380,
+              "y": 330,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-12",
+              "label": "12",
+              "x": 406,
+              "y": 330,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-13",
+              "label": "13",
+              "x": 432,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-14",
+              "label": "14",
+              "x": 458,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-15",
+              "label": "15",
+              "x": 484,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-16",
+              "label": "16",
+              "x": 510,
+              "y": 330,
+              "status": "reserved",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-17",
+              "label": "17",
+              "x": 536,
+              "y": 330,
+              "status": "sold",
+              "priceTierId": "tier-floor"
+            },
+            {
+              "id": "sec-a-H-18",
+              "label": "18",
+              "x": 562,
+              "y": 330,
+              "status": "held",
+              "priceTierId": "tier-floor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sec-b",
+      "label": "Section B",
+      "rows": [
+        {
+          "id": "sec-b-row-1",
+          "label": "A",
+          "seats": [
+            {
+              "id": "sec-b-A-1",
+              "label": "1",
+              "x": 760,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-2",
+              "label": "2",
+              "x": 786,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-3",
+              "label": "3",
+              "x": 812,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-4",
+              "label": "4",
+              "x": 838,
+              "y": 120,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-5",
+              "label": "5",
+              "x": 864,
+              "y": 120,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-6",
+              "label": "6",
+              "x": 890,
+              "y": 120,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-7",
+              "label": "7",
+              "x": 916,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-8",
+              "label": "8",
+              "x": 942,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-9",
+              "label": "9",
+              "x": 968,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-10",
+              "label": "10",
+              "x": 994,
+              "y": 120,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-11",
+              "label": "11",
+              "x": 1020,
+              "y": 120,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-12",
+              "label": "12",
+              "x": 1046,
+              "y": 120,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-13",
+              "label": "13",
+              "x": 1072,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-14",
+              "label": "14",
+              "x": 1098,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-15",
+              "label": "15",
+              "x": 1124,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-16",
+              "label": "16",
+              "x": 1150,
+              "y": 120,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-17",
+              "label": "17",
+              "x": 1176,
+              "y": 120,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-18",
+              "label": "18",
+              "x": 1202,
+              "y": 120,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-19",
+              "label": "19",
+              "x": 1228,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-A-20",
+              "label": "20",
+              "x": 1254,
+              "y": 120,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            }
+          ]
+        },
+        {
+          "id": "sec-b-row-2",
+          "label": "B",
+          "seats": [
+            {
+              "id": "sec-b-B-1",
+              "label": "1",
+              "x": 760,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-2",
+              "label": "2",
+              "x": 786,
+              "y": 150,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-3",
+              "label": "3",
+              "x": 812,
+              "y": 150,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-4",
+              "label": "4",
+              "x": 838,
+              "y": 150,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-5",
+              "label": "5",
+              "x": 864,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-6",
+              "label": "6",
+              "x": 890,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-7",
+              "label": "7",
+              "x": 916,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-8",
+              "label": "8",
+              "x": 942,
+              "y": 150,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-9",
+              "label": "9",
+              "x": 968,
+              "y": 150,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-10",
+              "label": "10",
+              "x": 994,
+              "y": 150,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-11",
+              "label": "11",
+              "x": 1020,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-12",
+              "label": "12",
+              "x": 1046,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-13",
+              "label": "13",
+              "x": 1072,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-14",
+              "label": "14",
+              "x": 1098,
+              "y": 150,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-15",
+              "label": "15",
+              "x": 1124,
+              "y": 150,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-16",
+              "label": "16",
+              "x": 1150,
+              "y": 150,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-17",
+              "label": "17",
+              "x": 1176,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-18",
+              "label": "18",
+              "x": 1202,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-19",
+              "label": "19",
+              "x": 1228,
+              "y": 150,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-B-20",
+              "label": "20",
+              "x": 1254,
+              "y": 150,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            }
+          ]
+        },
+        {
+          "id": "sec-b-row-3",
+          "label": "C",
+          "seats": [
+            {
+              "id": "sec-b-C-1",
+              "label": "1",
+              "x": 760,
+              "y": 180,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-2",
+              "label": "2",
+              "x": 786,
+              "y": 180,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-3",
+              "label": "3",
+              "x": 812,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-4",
+              "label": "4",
+              "x": 838,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-5",
+              "label": "5",
+              "x": 864,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-6",
+              "label": "6",
+              "x": 890,
+              "y": 180,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-7",
+              "label": "7",
+              "x": 916,
+              "y": 180,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-8",
+              "label": "8",
+              "x": 942,
+              "y": 180,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-9",
+              "label": "9",
+              "x": 968,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-10",
+              "label": "10",
+              "x": 994,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-11",
+              "label": "11",
+              "x": 1020,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-12",
+              "label": "12",
+              "x": 1046,
+              "y": 180,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-13",
+              "label": "13",
+              "x": 1072,
+              "y": 180,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-14",
+              "label": "14",
+              "x": 1098,
+              "y": 180,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-15",
+              "label": "15",
+              "x": 1124,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-16",
+              "label": "16",
+              "x": 1150,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-17",
+              "label": "17",
+              "x": 1176,
+              "y": 180,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-18",
+              "label": "18",
+              "x": 1202,
+              "y": 180,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-19",
+              "label": "19",
+              "x": 1228,
+              "y": 180,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-C-20",
+              "label": "20",
+              "x": 1254,
+              "y": 180,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            }
+          ]
+        },
+        {
+          "id": "sec-b-row-4",
+          "label": "D",
+          "seats": [
+            {
+              "id": "sec-b-D-1",
+              "label": "1",
+              "x": 760,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-2",
+              "label": "2",
+              "x": 786,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-3",
+              "label": "3",
+              "x": 812,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-4",
+              "label": "4",
+              "x": 838,
+              "y": 210,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-5",
+              "label": "5",
+              "x": 864,
+              "y": 210,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-6",
+              "label": "6",
+              "x": 890,
+              "y": 210,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-7",
+              "label": "7",
+              "x": 916,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-8",
+              "label": "8",
+              "x": 942,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-9",
+              "label": "9",
+              "x": 968,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-10",
+              "label": "10",
+              "x": 994,
+              "y": 210,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-11",
+              "label": "11",
+              "x": 1020,
+              "y": 210,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-12",
+              "label": "12",
+              "x": 1046,
+              "y": 210,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-13",
+              "label": "13",
+              "x": 1072,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-14",
+              "label": "14",
+              "x": 1098,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-15",
+              "label": "15",
+              "x": 1124,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-16",
+              "label": "16",
+              "x": 1150,
+              "y": 210,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-17",
+              "label": "17",
+              "x": 1176,
+              "y": 210,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-18",
+              "label": "18",
+              "x": 1202,
+              "y": 210,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-19",
+              "label": "19",
+              "x": 1228,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-D-20",
+              "label": "20",
+              "x": 1254,
+              "y": 210,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            }
+          ]
+        },
+        {
+          "id": "sec-b-row-5",
+          "label": "E",
+          "seats": [
+            {
+              "id": "sec-b-E-1",
+              "label": "1",
+              "x": 760,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-2",
+              "label": "2",
+              "x": 786,
+              "y": 240,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-3",
+              "label": "3",
+              "x": 812,
+              "y": 240,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-4",
+              "label": "4",
+              "x": 838,
+              "y": 240,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-5",
+              "label": "5",
+              "x": 864,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-6",
+              "label": "6",
+              "x": 890,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-7",
+              "label": "7",
+              "x": 916,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-8",
+              "label": "8",
+              "x": 942,
+              "y": 240,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-9",
+              "label": "9",
+              "x": 968,
+              "y": 240,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-10",
+              "label": "10",
+              "x": 994,
+              "y": 240,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-11",
+              "label": "11",
+              "x": 1020,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-12",
+              "label": "12",
+              "x": 1046,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-13",
+              "label": "13",
+              "x": 1072,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-14",
+              "label": "14",
+              "x": 1098,
+              "y": 240,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-15",
+              "label": "15",
+              "x": 1124,
+              "y": 240,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-16",
+              "label": "16",
+              "x": 1150,
+              "y": 240,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-17",
+              "label": "17",
+              "x": 1176,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-18",
+              "label": "18",
+              "x": 1202,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-19",
+              "label": "19",
+              "x": 1228,
+              "y": 240,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-E-20",
+              "label": "20",
+              "x": 1254,
+              "y": 240,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            }
+          ]
+        },
+        {
+          "id": "sec-b-row-6",
+          "label": "F",
+          "seats": [
+            {
+              "id": "sec-b-F-1",
+              "label": "1",
+              "x": 760,
+              "y": 270,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-2",
+              "label": "2",
+              "x": 786,
+              "y": 270,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-3",
+              "label": "3",
+              "x": 812,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-4",
+              "label": "4",
+              "x": 838,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-5",
+              "label": "5",
+              "x": 864,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-6",
+              "label": "6",
+              "x": 890,
+              "y": 270,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-7",
+              "label": "7",
+              "x": 916,
+              "y": 270,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-8",
+              "label": "8",
+              "x": 942,
+              "y": 270,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-9",
+              "label": "9",
+              "x": 968,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-10",
+              "label": "10",
+              "x": 994,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-11",
+              "label": "11",
+              "x": 1020,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-12",
+              "label": "12",
+              "x": 1046,
+              "y": 270,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-13",
+              "label": "13",
+              "x": 1072,
+              "y": 270,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-14",
+              "label": "14",
+              "x": 1098,
+              "y": 270,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-15",
+              "label": "15",
+              "x": 1124,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-16",
+              "label": "16",
+              "x": 1150,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-17",
+              "label": "17",
+              "x": 1176,
+              "y": 270,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-18",
+              "label": "18",
+              "x": 1202,
+              "y": 270,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-19",
+              "label": "19",
+              "x": 1228,
+              "y": 270,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-F-20",
+              "label": "20",
+              "x": 1254,
+              "y": 270,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            }
+          ]
+        },
+        {
+          "id": "sec-b-row-7",
+          "label": "G",
+          "seats": [
+            {
+              "id": "sec-b-G-1",
+              "label": "1",
+              "x": 760,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-2",
+              "label": "2",
+              "x": 786,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-3",
+              "label": "3",
+              "x": 812,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-4",
+              "label": "4",
+              "x": 838,
+              "y": 300,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-5",
+              "label": "5",
+              "x": 864,
+              "y": 300,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-6",
+              "label": "6",
+              "x": 890,
+              "y": 300,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-7",
+              "label": "7",
+              "x": 916,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-8",
+              "label": "8",
+              "x": 942,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-9",
+              "label": "9",
+              "x": 968,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-10",
+              "label": "10",
+              "x": 994,
+              "y": 300,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-11",
+              "label": "11",
+              "x": 1020,
+              "y": 300,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-12",
+              "label": "12",
+              "x": 1046,
+              "y": 300,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-13",
+              "label": "13",
+              "x": 1072,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-14",
+              "label": "14",
+              "x": 1098,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-15",
+              "label": "15",
+              "x": 1124,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-16",
+              "label": "16",
+              "x": 1150,
+              "y": 300,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-17",
+              "label": "17",
+              "x": 1176,
+              "y": 300,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-18",
+              "label": "18",
+              "x": 1202,
+              "y": 300,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-19",
+              "label": "19",
+              "x": 1228,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-G-20",
+              "label": "20",
+              "x": 1254,
+              "y": 300,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            }
+          ]
+        },
+        {
+          "id": "sec-b-row-8",
+          "label": "H",
+          "seats": [
+            {
+              "id": "sec-b-H-1",
+              "label": "1",
+              "x": 760,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-2",
+              "label": "2",
+              "x": 786,
+              "y": 330,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-3",
+              "label": "3",
+              "x": 812,
+              "y": 330,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-4",
+              "label": "4",
+              "x": 838,
+              "y": 330,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-5",
+              "label": "5",
+              "x": 864,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-6",
+              "label": "6",
+              "x": 890,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-7",
+              "label": "7",
+              "x": 916,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-8",
+              "label": "8",
+              "x": 942,
+              "y": 330,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-9",
+              "label": "9",
+              "x": 968,
+              "y": 330,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-10",
+              "label": "10",
+              "x": 994,
+              "y": 330,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-11",
+              "label": "11",
+              "x": 1020,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-12",
+              "label": "12",
+              "x": 1046,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-13",
+              "label": "13",
+              "x": 1072,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-14",
+              "label": "14",
+              "x": 1098,
+              "y": 330,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-15",
+              "label": "15",
+              "x": 1124,
+              "y": 330,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-16",
+              "label": "16",
+              "x": 1150,
+              "y": 330,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-17",
+              "label": "17",
+              "x": 1176,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-18",
+              "label": "18",
+              "x": 1202,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-19",
+              "label": "19",
+              "x": 1228,
+              "y": 330,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-H-20",
+              "label": "20",
+              "x": 1254,
+              "y": 330,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            }
+          ]
+        },
+        {
+          "id": "sec-b-row-9",
+          "label": "I",
+          "seats": [
+            {
+              "id": "sec-b-I-1",
+              "label": "1",
+              "x": 760,
+              "y": 360,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-2",
+              "label": "2",
+              "x": 786,
+              "y": 360,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-3",
+              "label": "3",
+              "x": 812,
+              "y": 360,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-4",
+              "label": "4",
+              "x": 838,
+              "y": 360,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-5",
+              "label": "5",
+              "x": 864,
+              "y": 360,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-6",
+              "label": "6",
+              "x": 890,
+              "y": 360,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-7",
+              "label": "7",
+              "x": 916,
+              "y": 360,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-8",
+              "label": "8",
+              "x": 942,
+              "y": 360,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-9",
+              "label": "9",
+              "x": 968,
+              "y": 360,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-10",
+              "label": "10",
+              "x": 994,
+              "y": 360,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-11",
+              "label": "11",
+              "x": 1020,
+              "y": 360,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-12",
+              "label": "12",
+              "x": 1046,
+              "y": 360,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-13",
+              "label": "13",
+              "x": 1072,
+              "y": 360,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-14",
+              "label": "14",
+              "x": 1098,
+              "y": 360,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-15",
+              "label": "15",
+              "x": 1124,
+              "y": 360,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-16",
+              "label": "16",
+              "x": 1150,
+              "y": 360,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-17",
+              "label": "17",
+              "x": 1176,
+              "y": 360,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-18",
+              "label": "18",
+              "x": 1202,
+              "y": 360,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-19",
+              "label": "19",
+              "x": 1228,
+              "y": 360,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-I-20",
+              "label": "20",
+              "x": 1254,
+              "y": 360,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            }
+          ]
+        },
+        {
+          "id": "sec-b-row-10",
+          "label": "J",
+          "seats": [
+            {
+              "id": "sec-b-J-1",
+              "label": "1",
+              "x": 760,
+              "y": 390,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-2",
+              "label": "2",
+              "x": 786,
+              "y": 390,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-3",
+              "label": "3",
+              "x": 812,
+              "y": 390,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-4",
+              "label": "4",
+              "x": 838,
+              "y": 390,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-5",
+              "label": "5",
+              "x": 864,
+              "y": 390,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-6",
+              "label": "6",
+              "x": 890,
+              "y": 390,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-7",
+              "label": "7",
+              "x": 916,
+              "y": 390,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-8",
+              "label": "8",
+              "x": 942,
+              "y": 390,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-9",
+              "label": "9",
+              "x": 968,
+              "y": 390,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-10",
+              "label": "10",
+              "x": 994,
+              "y": 390,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-11",
+              "label": "11",
+              "x": 1020,
+              "y": 390,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-12",
+              "label": "12",
+              "x": 1046,
+              "y": 390,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-13",
+              "label": "13",
+              "x": 1072,
+              "y": 390,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-14",
+              "label": "14",
+              "x": 1098,
+              "y": 390,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-15",
+              "label": "15",
+              "x": 1124,
+              "y": 390,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-16",
+              "label": "16",
+              "x": 1150,
+              "y": 390,
+              "status": "reserved",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-17",
+              "label": "17",
+              "x": 1176,
+              "y": 390,
+              "status": "sold",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-18",
+              "label": "18",
+              "x": 1202,
+              "y": 390,
+              "status": "held",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-19",
+              "label": "19",
+              "x": 1228,
+              "y": 390,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            },
+            {
+              "id": "sec-b-J-20",
+              "label": "20",
+              "x": 1254,
+              "y": 390,
+              "status": "available",
+              "priceTierId": "tier-lower"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sec-c",
+      "label": "Section C",
+      "rows": [
+        {
+          "id": "sec-c-row-1",
+          "label": "A",
+          "seats": [
+            {
+              "id": "sec-c-A-1",
+              "label": "1",
+              "x": 120,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-2",
+              "label": "2",
+              "x": 146,
+              "y": 620,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-3",
+              "label": "3",
+              "x": 172,
+              "y": 620,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-4",
+              "label": "4",
+              "x": 198,
+              "y": 620,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-5",
+              "label": "5",
+              "x": 224,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-6",
+              "label": "6",
+              "x": 250,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-7",
+              "label": "7",
+              "x": 276,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-8",
+              "label": "8",
+              "x": 302,
+              "y": 620,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-9",
+              "label": "9",
+              "x": 328,
+              "y": 620,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-10",
+              "label": "10",
+              "x": 354,
+              "y": 620,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-11",
+              "label": "11",
+              "x": 380,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-12",
+              "label": "12",
+              "x": 406,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-13",
+              "label": "13",
+              "x": 432,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-14",
+              "label": "14",
+              "x": 458,
+              "y": 620,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-15",
+              "label": "15",
+              "x": 484,
+              "y": 620,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-16",
+              "label": "16",
+              "x": 510,
+              "y": 620,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-17",
+              "label": "17",
+              "x": 536,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-18",
+              "label": "18",
+              "x": 562,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-19",
+              "label": "19",
+              "x": 588,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-20",
+              "label": "20",
+              "x": 614,
+              "y": 620,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-21",
+              "label": "21",
+              "x": 640,
+              "y": 620,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-22",
+              "label": "22",
+              "x": 666,
+              "y": 620,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-23",
+              "label": "23",
+              "x": 692,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-A-24",
+              "label": "24",
+              "x": 718,
+              "y": 620,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        },
+        {
+          "id": "sec-c-row-2",
+          "label": "B",
+          "seats": [
+            {
+              "id": "sec-c-B-1",
+              "label": "1",
+              "x": 120,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-2",
+              "label": "2",
+              "x": 146,
+              "y": 650,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-3",
+              "label": "3",
+              "x": 172,
+              "y": 650,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-4",
+              "label": "4",
+              "x": 198,
+              "y": 650,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-5",
+              "label": "5",
+              "x": 224,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-6",
+              "label": "6",
+              "x": 250,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-7",
+              "label": "7",
+              "x": 276,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-8",
+              "label": "8",
+              "x": 302,
+              "y": 650,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-9",
+              "label": "9",
+              "x": 328,
+              "y": 650,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-10",
+              "label": "10",
+              "x": 354,
+              "y": 650,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-11",
+              "label": "11",
+              "x": 380,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-12",
+              "label": "12",
+              "x": 406,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-13",
+              "label": "13",
+              "x": 432,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-14",
+              "label": "14",
+              "x": 458,
+              "y": 650,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-15",
+              "label": "15",
+              "x": 484,
+              "y": 650,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-16",
+              "label": "16",
+              "x": 510,
+              "y": 650,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-17",
+              "label": "17",
+              "x": 536,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-18",
+              "label": "18",
+              "x": 562,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-19",
+              "label": "19",
+              "x": 588,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-20",
+              "label": "20",
+              "x": 614,
+              "y": 650,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-21",
+              "label": "21",
+              "x": 640,
+              "y": 650,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-22",
+              "label": "22",
+              "x": 666,
+              "y": 650,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-23",
+              "label": "23",
+              "x": 692,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-B-24",
+              "label": "24",
+              "x": 718,
+              "y": 650,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        },
+        {
+          "id": "sec-c-row-3",
+          "label": "C",
+          "seats": [
+            {
+              "id": "sec-c-C-1",
+              "label": "1",
+              "x": 120,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-2",
+              "label": "2",
+              "x": 146,
+              "y": 680,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-3",
+              "label": "3",
+              "x": 172,
+              "y": 680,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-4",
+              "label": "4",
+              "x": 198,
+              "y": 680,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-5",
+              "label": "5",
+              "x": 224,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-6",
+              "label": "6",
+              "x": 250,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-7",
+              "label": "7",
+              "x": 276,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-8",
+              "label": "8",
+              "x": 302,
+              "y": 680,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-9",
+              "label": "9",
+              "x": 328,
+              "y": 680,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-10",
+              "label": "10",
+              "x": 354,
+              "y": 680,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-11",
+              "label": "11",
+              "x": 380,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-12",
+              "label": "12",
+              "x": 406,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-13",
+              "label": "13",
+              "x": 432,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-14",
+              "label": "14",
+              "x": 458,
+              "y": 680,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-15",
+              "label": "15",
+              "x": 484,
+              "y": 680,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-16",
+              "label": "16",
+              "x": 510,
+              "y": 680,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-17",
+              "label": "17",
+              "x": 536,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-18",
+              "label": "18",
+              "x": 562,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-19",
+              "label": "19",
+              "x": 588,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-20",
+              "label": "20",
+              "x": 614,
+              "y": 680,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-21",
+              "label": "21",
+              "x": 640,
+              "y": 680,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-22",
+              "label": "22",
+              "x": 666,
+              "y": 680,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-23",
+              "label": "23",
+              "x": 692,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-C-24",
+              "label": "24",
+              "x": 718,
+              "y": 680,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        },
+        {
+          "id": "sec-c-row-4",
+          "label": "D",
+          "seats": [
+            {
+              "id": "sec-c-D-1",
+              "label": "1",
+              "x": 120,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-2",
+              "label": "2",
+              "x": 146,
+              "y": 710,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-3",
+              "label": "3",
+              "x": 172,
+              "y": 710,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-4",
+              "label": "4",
+              "x": 198,
+              "y": 710,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-5",
+              "label": "5",
+              "x": 224,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-6",
+              "label": "6",
+              "x": 250,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-7",
+              "label": "7",
+              "x": 276,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-8",
+              "label": "8",
+              "x": 302,
+              "y": 710,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-9",
+              "label": "9",
+              "x": 328,
+              "y": 710,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-10",
+              "label": "10",
+              "x": 354,
+              "y": 710,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-11",
+              "label": "11",
+              "x": 380,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-12",
+              "label": "12",
+              "x": 406,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-13",
+              "label": "13",
+              "x": 432,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-14",
+              "label": "14",
+              "x": 458,
+              "y": 710,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-15",
+              "label": "15",
+              "x": 484,
+              "y": 710,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-16",
+              "label": "16",
+              "x": 510,
+              "y": 710,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-17",
+              "label": "17",
+              "x": 536,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-18",
+              "label": "18",
+              "x": 562,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-19",
+              "label": "19",
+              "x": 588,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-20",
+              "label": "20",
+              "x": 614,
+              "y": 710,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-21",
+              "label": "21",
+              "x": 640,
+              "y": 710,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-22",
+              "label": "22",
+              "x": 666,
+              "y": 710,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-23",
+              "label": "23",
+              "x": 692,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-D-24",
+              "label": "24",
+              "x": 718,
+              "y": 710,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        },
+        {
+          "id": "sec-c-row-5",
+          "label": "E",
+          "seats": [
+            {
+              "id": "sec-c-E-1",
+              "label": "1",
+              "x": 120,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-2",
+              "label": "2",
+              "x": 146,
+              "y": 740,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-3",
+              "label": "3",
+              "x": 172,
+              "y": 740,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-4",
+              "label": "4",
+              "x": 198,
+              "y": 740,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-5",
+              "label": "5",
+              "x": 224,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-6",
+              "label": "6",
+              "x": 250,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-7",
+              "label": "7",
+              "x": 276,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-8",
+              "label": "8",
+              "x": 302,
+              "y": 740,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-9",
+              "label": "9",
+              "x": 328,
+              "y": 740,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-10",
+              "label": "10",
+              "x": 354,
+              "y": 740,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-11",
+              "label": "11",
+              "x": 380,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-12",
+              "label": "12",
+              "x": 406,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-13",
+              "label": "13",
+              "x": 432,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-14",
+              "label": "14",
+              "x": 458,
+              "y": 740,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-15",
+              "label": "15",
+              "x": 484,
+              "y": 740,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-16",
+              "label": "16",
+              "x": 510,
+              "y": 740,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-17",
+              "label": "17",
+              "x": 536,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-18",
+              "label": "18",
+              "x": 562,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-19",
+              "label": "19",
+              "x": 588,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-20",
+              "label": "20",
+              "x": 614,
+              "y": 740,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-21",
+              "label": "21",
+              "x": 640,
+              "y": 740,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-22",
+              "label": "22",
+              "x": 666,
+              "y": 740,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-23",
+              "label": "23",
+              "x": 692,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-E-24",
+              "label": "24",
+              "x": 718,
+              "y": 740,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        },
+        {
+          "id": "sec-c-row-6",
+          "label": "F",
+          "seats": [
+            {
+              "id": "sec-c-F-1",
+              "label": "1",
+              "x": 120,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-2",
+              "label": "2",
+              "x": 146,
+              "y": 770,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-3",
+              "label": "3",
+              "x": 172,
+              "y": 770,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-4",
+              "label": "4",
+              "x": 198,
+              "y": 770,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-5",
+              "label": "5",
+              "x": 224,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-6",
+              "label": "6",
+              "x": 250,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-7",
+              "label": "7",
+              "x": 276,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-8",
+              "label": "8",
+              "x": 302,
+              "y": 770,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-9",
+              "label": "9",
+              "x": 328,
+              "y": 770,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-10",
+              "label": "10",
+              "x": 354,
+              "y": 770,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-11",
+              "label": "11",
+              "x": 380,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-12",
+              "label": "12",
+              "x": 406,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-13",
+              "label": "13",
+              "x": 432,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-14",
+              "label": "14",
+              "x": 458,
+              "y": 770,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-15",
+              "label": "15",
+              "x": 484,
+              "y": 770,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-16",
+              "label": "16",
+              "x": 510,
+              "y": 770,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-17",
+              "label": "17",
+              "x": 536,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-18",
+              "label": "18",
+              "x": 562,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-19",
+              "label": "19",
+              "x": 588,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-20",
+              "label": "20",
+              "x": 614,
+              "y": 770,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-21",
+              "label": "21",
+              "x": 640,
+              "y": 770,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-22",
+              "label": "22",
+              "x": 666,
+              "y": 770,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-23",
+              "label": "23",
+              "x": 692,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-F-24",
+              "label": "24",
+              "x": 718,
+              "y": 770,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        },
+        {
+          "id": "sec-c-row-7",
+          "label": "G",
+          "seats": [
+            {
+              "id": "sec-c-G-1",
+              "label": "1",
+              "x": 120,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-2",
+              "label": "2",
+              "x": 146,
+              "y": 800,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-3",
+              "label": "3",
+              "x": 172,
+              "y": 800,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-4",
+              "label": "4",
+              "x": 198,
+              "y": 800,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-5",
+              "label": "5",
+              "x": 224,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-6",
+              "label": "6",
+              "x": 250,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-7",
+              "label": "7",
+              "x": 276,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-8",
+              "label": "8",
+              "x": 302,
+              "y": 800,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-9",
+              "label": "9",
+              "x": 328,
+              "y": 800,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-10",
+              "label": "10",
+              "x": 354,
+              "y": 800,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-11",
+              "label": "11",
+              "x": 380,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-12",
+              "label": "12",
+              "x": 406,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-13",
+              "label": "13",
+              "x": 432,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-14",
+              "label": "14",
+              "x": 458,
+              "y": 800,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-15",
+              "label": "15",
+              "x": 484,
+              "y": 800,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-16",
+              "label": "16",
+              "x": 510,
+              "y": 800,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-17",
+              "label": "17",
+              "x": 536,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-18",
+              "label": "18",
+              "x": 562,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-19",
+              "label": "19",
+              "x": 588,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-20",
+              "label": "20",
+              "x": 614,
+              "y": 800,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-21",
+              "label": "21",
+              "x": 640,
+              "y": 800,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-22",
+              "label": "22",
+              "x": 666,
+              "y": 800,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-23",
+              "label": "23",
+              "x": 692,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-G-24",
+              "label": "24",
+              "x": 718,
+              "y": 800,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        },
+        {
+          "id": "sec-c-row-8",
+          "label": "H",
+          "seats": [
+            {
+              "id": "sec-c-H-1",
+              "label": "1",
+              "x": 120,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-2",
+              "label": "2",
+              "x": 146,
+              "y": 830,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-3",
+              "label": "3",
+              "x": 172,
+              "y": 830,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-4",
+              "label": "4",
+              "x": 198,
+              "y": 830,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-5",
+              "label": "5",
+              "x": 224,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-6",
+              "label": "6",
+              "x": 250,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-7",
+              "label": "7",
+              "x": 276,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-8",
+              "label": "8",
+              "x": 302,
+              "y": 830,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-9",
+              "label": "9",
+              "x": 328,
+              "y": 830,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-10",
+              "label": "10",
+              "x": 354,
+              "y": 830,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-11",
+              "label": "11",
+              "x": 380,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-12",
+              "label": "12",
+              "x": 406,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-13",
+              "label": "13",
+              "x": 432,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-14",
+              "label": "14",
+              "x": 458,
+              "y": 830,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-15",
+              "label": "15",
+              "x": 484,
+              "y": 830,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-16",
+              "label": "16",
+              "x": 510,
+              "y": 830,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-17",
+              "label": "17",
+              "x": 536,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-18",
+              "label": "18",
+              "x": 562,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-19",
+              "label": "19",
+              "x": 588,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-20",
+              "label": "20",
+              "x": 614,
+              "y": 830,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-21",
+              "label": "21",
+              "x": 640,
+              "y": 830,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-22",
+              "label": "22",
+              "x": 666,
+              "y": 830,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-23",
+              "label": "23",
+              "x": 692,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-H-24",
+              "label": "24",
+              "x": 718,
+              "y": 830,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        },
+        {
+          "id": "sec-c-row-9",
+          "label": "I",
+          "seats": [
+            {
+              "id": "sec-c-I-1",
+              "label": "1",
+              "x": 120,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-2",
+              "label": "2",
+              "x": 146,
+              "y": 860,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-3",
+              "label": "3",
+              "x": 172,
+              "y": 860,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-4",
+              "label": "4",
+              "x": 198,
+              "y": 860,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-5",
+              "label": "5",
+              "x": 224,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-6",
+              "label": "6",
+              "x": 250,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-7",
+              "label": "7",
+              "x": 276,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-8",
+              "label": "8",
+              "x": 302,
+              "y": 860,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-9",
+              "label": "9",
+              "x": 328,
+              "y": 860,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-10",
+              "label": "10",
+              "x": 354,
+              "y": 860,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-11",
+              "label": "11",
+              "x": 380,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-12",
+              "label": "12",
+              "x": 406,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-13",
+              "label": "13",
+              "x": 432,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-14",
+              "label": "14",
+              "x": 458,
+              "y": 860,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-15",
+              "label": "15",
+              "x": 484,
+              "y": 860,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-16",
+              "label": "16",
+              "x": 510,
+              "y": 860,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-17",
+              "label": "17",
+              "x": 536,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-18",
+              "label": "18",
+              "x": 562,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-19",
+              "label": "19",
+              "x": 588,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-20",
+              "label": "20",
+              "x": 614,
+              "y": 860,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-21",
+              "label": "21",
+              "x": 640,
+              "y": 860,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-22",
+              "label": "22",
+              "x": 666,
+              "y": 860,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-23",
+              "label": "23",
+              "x": 692,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-I-24",
+              "label": "24",
+              "x": 718,
+              "y": 860,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        },
+        {
+          "id": "sec-c-row-10",
+          "label": "J",
+          "seats": [
+            {
+              "id": "sec-c-J-1",
+              "label": "1",
+              "x": 120,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-2",
+              "label": "2",
+              "x": 146,
+              "y": 890,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-3",
+              "label": "3",
+              "x": 172,
+              "y": 890,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-4",
+              "label": "4",
+              "x": 198,
+              "y": 890,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-5",
+              "label": "5",
+              "x": 224,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-6",
+              "label": "6",
+              "x": 250,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-7",
+              "label": "7",
+              "x": 276,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-8",
+              "label": "8",
+              "x": 302,
+              "y": 890,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-9",
+              "label": "9",
+              "x": 328,
+              "y": 890,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-10",
+              "label": "10",
+              "x": 354,
+              "y": 890,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-11",
+              "label": "11",
+              "x": 380,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-12",
+              "label": "12",
+              "x": 406,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-13",
+              "label": "13",
+              "x": 432,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-14",
+              "label": "14",
+              "x": 458,
+              "y": 890,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-15",
+              "label": "15",
+              "x": 484,
+              "y": 890,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-16",
+              "label": "16",
+              "x": 510,
+              "y": 890,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-17",
+              "label": "17",
+              "x": 536,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-18",
+              "label": "18",
+              "x": 562,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-19",
+              "label": "19",
+              "x": 588,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-20",
+              "label": "20",
+              "x": 614,
+              "y": 890,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-21",
+              "label": "21",
+              "x": 640,
+              "y": 890,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-22",
+              "label": "22",
+              "x": 666,
+              "y": 890,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-23",
+              "label": "23",
+              "x": 692,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-J-24",
+              "label": "24",
+              "x": 718,
+              "y": 890,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        },
+        {
+          "id": "sec-c-row-11",
+          "label": "K",
+          "seats": [
+            {
+              "id": "sec-c-K-1",
+              "label": "1",
+              "x": 120,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-2",
+              "label": "2",
+              "x": 146,
+              "y": 920,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-3",
+              "label": "3",
+              "x": 172,
+              "y": 920,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-4",
+              "label": "4",
+              "x": 198,
+              "y": 920,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-5",
+              "label": "5",
+              "x": 224,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-6",
+              "label": "6",
+              "x": 250,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-7",
+              "label": "7",
+              "x": 276,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-8",
+              "label": "8",
+              "x": 302,
+              "y": 920,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-9",
+              "label": "9",
+              "x": 328,
+              "y": 920,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-10",
+              "label": "10",
+              "x": 354,
+              "y": 920,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-11",
+              "label": "11",
+              "x": 380,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-12",
+              "label": "12",
+              "x": 406,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-13",
+              "label": "13",
+              "x": 432,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-14",
+              "label": "14",
+              "x": 458,
+              "y": 920,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-15",
+              "label": "15",
+              "x": 484,
+              "y": 920,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-16",
+              "label": "16",
+              "x": 510,
+              "y": 920,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-17",
+              "label": "17",
+              "x": 536,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-18",
+              "label": "18",
+              "x": 562,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-19",
+              "label": "19",
+              "x": 588,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-20",
+              "label": "20",
+              "x": 614,
+              "y": 920,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-21",
+              "label": "21",
+              "x": 640,
+              "y": 920,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-22",
+              "label": "22",
+              "x": 666,
+              "y": 920,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-23",
+              "label": "23",
+              "x": 692,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-K-24",
+              "label": "24",
+              "x": 718,
+              "y": 920,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        },
+        {
+          "id": "sec-c-row-12",
+          "label": "L",
+          "seats": [
+            {
+              "id": "sec-c-L-1",
+              "label": "1",
+              "x": 120,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-2",
+              "label": "2",
+              "x": 146,
+              "y": 950,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-3",
+              "label": "3",
+              "x": 172,
+              "y": 950,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-4",
+              "label": "4",
+              "x": 198,
+              "y": 950,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-5",
+              "label": "5",
+              "x": 224,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-6",
+              "label": "6",
+              "x": 250,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-7",
+              "label": "7",
+              "x": 276,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-8",
+              "label": "8",
+              "x": 302,
+              "y": 950,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-9",
+              "label": "9",
+              "x": 328,
+              "y": 950,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-10",
+              "label": "10",
+              "x": 354,
+              "y": 950,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-11",
+              "label": "11",
+              "x": 380,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-12",
+              "label": "12",
+              "x": 406,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-13",
+              "label": "13",
+              "x": 432,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-14",
+              "label": "14",
+              "x": 458,
+              "y": 950,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-15",
+              "label": "15",
+              "x": 484,
+              "y": 950,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-16",
+              "label": "16",
+              "x": 510,
+              "y": 950,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-17",
+              "label": "17",
+              "x": 536,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-18",
+              "label": "18",
+              "x": 562,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-19",
+              "label": "19",
+              "x": 588,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-20",
+              "label": "20",
+              "x": 614,
+              "y": 950,
+              "status": "reserved",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-21",
+              "label": "21",
+              "x": 640,
+              "y": 950,
+              "status": "sold",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-22",
+              "label": "22",
+              "x": 666,
+              "y": 950,
+              "status": "held",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-23",
+              "label": "23",
+              "x": 692,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            },
+            {
+              "id": "sec-c-L-24",
+              "label": "24",
+              "x": 718,
+              "y": 950,
+              "status": "available",
+              "priceTierId": "tier-upper"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
