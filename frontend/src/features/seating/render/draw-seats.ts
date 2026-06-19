@@ -24,6 +24,9 @@ export const SEAT_RADIUS = 9;
 /** Only draw seat labels once the scale crosses this threshold. */
 export const LABEL_ZOOM_THRESHOLD = 1.6;
 
+/** World-space vertical gap between a section's top seat and its label. */
+const SECTION_LABEL_GAP = 22;
+
 export interface DrawOptions {
   venue: NormalizedVenue;
   transform: ViewportTransform;
@@ -81,9 +84,7 @@ const HEATMAP_FALLBACK = [
   "#eab308",
   "#22c55e",
   "#3b82f6",
-];
-
-/** Build a `priceTierId → color` map for heat-map mode (plan 09, Phase 3). */
+]; /** Build a `priceTierId → color` map for heat-map mode (plan 09, Phase 3). */
 function heatmapColors(venue: NormalizedVenue): Map<string, string> {
   const colors = new Map<string, string>();
   let i = 0;
@@ -95,6 +96,78 @@ function heatmapColors(venue: NormalizedVenue): Map<string, string> {
     i += 1;
   }
   return colors;
+}
+
+/**
+ * Draw a label for every section, anchored at the horizontal center of the
+ * section's seats and just above its topmost row. Section labels are always
+ * visible (unlike per-seat labels) so visitors can orient themselves on the map
+ * even when zoomed out.
+ */
+function drawSectionLabels(
+  ctx: CanvasRenderingContext2D,
+  venue: NormalizedVenue,
+  transform: ViewportTransform,
+  width: number,
+  height: number,
+): void {
+  // Aggregate each section's seat bounds (world space) in a single pass.
+  const bounds = new Map<
+    string,
+    { minX: number; maxX: number; minY: number }
+  >();
+  for (const seat of venue.seatOrder) {
+    const b = bounds.get(seat.sectionId);
+    if (!b) {
+      bounds.set(seat.sectionId, {
+        minX: seat.x,
+        maxX: seat.x,
+        minY: seat.y,
+      });
+    } else {
+      if (seat.x < b.minX) b.minX = seat.x;
+      if (seat.x > b.maxX) b.maxX = seat.x;
+      if (seat.y < b.minY) b.minY = seat.y;
+    }
+  }
+
+  const styles = getComputedStyle(document.documentElement);
+  const fg = styles.getPropertyValue("--foreground").trim() || "#0b1220";
+  const bg = styles.getPropertyValue("--card").trim() || "#ffffff";
+
+  ctx.save();
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.font = `600 14px ui-sans-serif, system-ui, sans-serif`;
+
+  for (const [sectionId, b] of bounds) {
+    const section = venue.sectionsById.get(sectionId);
+    if (!section) continue;
+    const world = {
+      x: (b.minX + b.maxX) / 2,
+      y: b.minY - SECTION_LABEL_GAP,
+    };
+    const p = worldToScreen(world, transform);
+    // Skip labels that fall outside the viewport.
+    if (p.x < 0 || p.x > width || p.y < -16 || p.y > height + 16) continue;
+
+    // A subtle backing pill keeps the label legible over dense seats.
+    const text = section.label;
+    const padX = 6;
+    const metrics = ctx.measureText(text);
+    const w = metrics.width + padX * 2;
+    const h = 20;
+    ctx.globalAlpha = 0.85;
+    ctx.fillStyle = bg;
+    ctx.beginPath();
+    ctx.roundRect(p.x - w / 2, p.y - h / 2, w, h, 6);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = fg;
+    ctx.fillText(text, p.x, p.y);
+  }
+
+  ctx.restore();
 }
 
 /**
@@ -195,6 +268,8 @@ export function drawSeats(
       ctx.fillText(seat.label, p.x, p.y);
     }
   }
+
+  drawSectionLabels(ctx, venue, transform, width, height);
 }
 
 /** Picking radius (in world units) used by pointer hit-testing for a given scale. */

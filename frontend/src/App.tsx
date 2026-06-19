@@ -3,6 +3,7 @@ import { SeatMap } from "@/components/seat-map/SeatMap";
 import { SeatLegend } from "@/components/seat-map/SeatLegend";
 import { SeatDetailsSheet } from "@/components/seat-map/SeatDetailsSheet";
 import { AnnouncementRegion } from "@/components/seat-map/AnnouncementRegion";
+import { SelectionLimitToast } from "@/components/seat-map/SelectionLimitToast";
 import { ViewLaterNote } from "@/components/seat-map/ViewLaterNote";
 import { ThemeToggle } from "@/components/seat-map/ThemeToggle";
 import { AdjacentSeatsControl } from "@/components/seat-map/AdjacentSeatsControl";
@@ -150,6 +151,7 @@ export default function App() {
       )}
 
       {venue && <AnnouncementRegion venue={venue} />}
+      <SelectionLimitToast />
     </div>
   );
 }
