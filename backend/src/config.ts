@@ -67,7 +67,7 @@ export const config = {
      * is throttled without affecting normal traffic.
      */
     adminLogin: {
-      points: num(process.env.RATE_ADMIN_LOGIN_POINTS, 150),
+      points: num(process.env.RATE_ADMIN_LOGIN_POINTS, 120),
       duration: num(process.env.RATE_ADMIN_LOGIN_DURATION, 600),
     },
   },
