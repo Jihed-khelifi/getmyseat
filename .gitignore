@@ -6,6 +6,9 @@ dist/
 build/
 *.tsbuildinfo
 
+# File-backed mock DB (plan 08, gate G2)
+.data/
+
 # Logs
 logs/
 *.log

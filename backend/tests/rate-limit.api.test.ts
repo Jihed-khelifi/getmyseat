@@ -18,7 +18,7 @@ let app: Express;
 
 beforeEach(() => {
   container = buildContainer();
-  app = createApp(container.userService);
+  app = createApp(container);
 });
 
 afterEach(async () => {

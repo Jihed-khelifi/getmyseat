@@ -6,6 +6,10 @@ import {
   pickRadiusWorld,
 } from "@/features/seating/render/draw-seats";
 import {
+  getPulses,
+  prunePulses,
+} from "@/features/seating/render/pulse-registry";
+import {
   clampScale,
   fitToViewport,
   panBy,
@@ -49,6 +53,8 @@ export function SeatMap({ className }: { className?: string }) {
   const transform = useSeatingStore((s) => s.transform);
   const selectedSeatIds = useSeatingStore((s) => s.selectedSeatIds);
   const focusedSeatId = useSeatingStore((s) => s.focusedSeatId);
+  const liveStatus = useSeatingStore((s) => s.liveStatus);
+  const heatmap = useSeatingStore((s) => s.heatmap);
   const setTransform = useSeatingStore((s) => s.setTransform);
   const setFocusedSeat = useSeatingStore((s) => s.setFocusedSeat);
   const toggleSeat = useSeatingStore((s) => s.toggleSeat);
@@ -79,7 +85,10 @@ export function SeatMap({ className }: { className?: string }) {
     didFit.current = true;
   }, [venue, size, setTransform]);
 
-  // Draw on any visual state change.
+  // Draw on any visual state change. A status-change pulse (plan 09) keeps the
+  // rAF loop running for a few frames after a delta, then stops — animation
+  // stays inside the canvas loop and never becomes per-seat React work.
+  const rafRef = useRef<number | undefined>(undefined);
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || !venue || size.width === 0) return;
@@ -89,19 +98,50 @@ export function SeatMap({ className }: { className?: string }) {
     canvas.width = Math.floor(size.width * dpr);
     canvas.height = Math.floor(size.height * dpr);
 
-    const frame = requestAnimationFrame(() => {
+    const renderFrame = () => {
+      const now =
+        typeof performance !== "undefined" ? performance.now() : Date.now();
+      const stillAnimating = prunePulses(now);
+      const s = useSeatingStore.getState();
+      if (!s.venue) return;
       drawSeats(ctx, {
-        venue,
-        transform,
-        selected: selectedSeatIds,
-        focusedSeatId,
+        venue: s.venue,
+        transform: s.transform,
+        selected: s.selectedSeatIds,
+        liveStatus: s.liveStatus,
+        heatmap: s.heatmap,
+        pulses: getPulses(),
+        now,
+        focusedSeatId: s.focusedSeatId,
         dpr,
         width: size.width,
         height: size.height,
       });
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [venue, transform, selectedSeatIds, focusedSeatId, size]);
+      if (stillAnimating) {
+        rafRef.current = requestAnimationFrame(renderFrame);
+      } else {
+        rafRef.current = undefined;
+      }
+    };
+
+    if (rafRef.current === undefined) {
+      rafRef.current = requestAnimationFrame(renderFrame);
+    }
+    return () => {
+      if (rafRef.current !== undefined) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = undefined;
+      }
+    };
+  }, [
+    venue,
+    transform,
+    selectedSeatIds,
+    focusedSeatId,
+    liveStatus,
+    heatmap,
+    size,
+  ]);
 
   const pickSeatAt = (clientX: number, clientY: number) => {
     const canvas = canvasRef.current;

@@ -4,11 +4,14 @@ import { buildContainer } from "./container.js";
 import { logger } from "./utils/logger.js";
 
 const container = buildContainer();
-const app = createApp(container.userService);
+const app = createApp(container);
 
 const server = app.listen(config.port, () => {
   logger.info({ port: config.port }, "Backend listening");
 });
+
+// Plan 09: attach the WebSocket broadcaster to the running HTTP server.
+container.broadcaster.attach(server);
 
 async function shutdown(signal: string): Promise<void> {
   logger.info({ signal }, "Shutting down");

@@ -16,24 +16,105 @@ pnpm --filter backend build  # tsc -> dist/, then `pnpm --filter backend start`
 ```
 
 Configuration is environment-driven (see `src/config.ts`): `PORT`, `LOG_LEVEL`,
-`REPO_READ_DELAY_MS`, `CACHE_TTL_MS`, `CACHE_SWEEP_INTERVAL_MS`, and the
-`RATE_*` knobs. Tests shorten timings through these rather than weakening
+`REPO_READ_DELAY_MS`, `CACHE_TTL_MS`, `CACHE_SWEEP_INTERVAL_MS`, the `RATE_*`
+knobs, and the Phase 2 plan-10 settings `ADMIN_EMAIL`, `ADMIN_PASSWORD`,
+`ADMIN_TOKEN_TTL_MS`, `METRICS_BUCKET_MS`, `METRICS_RETAIN_BUCKETS`, and
+`GETMYSEAT_EVENT_FILE`. Tests shorten timings through these rather than weakening
 behavior.
 
 ## Endpoints
 
-| Method & path       | Behavior                                                                   |
-| ------------------- | -------------------------------------------------------------------------- |
-| `GET /users/:id`    | Cached read. `X-Cache: HIT\|MISS` header. `404` when the user is unknown.  |
-| `POST /users`       | Validated, queued write. `202 Accepted` with `{ id, queuedAt, position }`. |
-| `DELETE /cache`     | Drops cached entries; returns the post-clear status snapshot.              |
-| `GET /cache-status` | Observability snapshot (see below).                                        |
-| `GET /health`       | Liveness check.                                                            |
+| Method & path           | Behavior                                                                     |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| `GET /users/:id`        | Cached read. `X-Cache: HIT\|MISS` header. `404` when the user is unknown.    |
+| `POST /users`           | Validated, queued write. `202 Accepted` with `{ id, queuedAt, position }`.   |
+| `DELETE /cache`         | Drops cached entries; returns the post-clear status snapshot.                |
+| `GET /cache-status`     | Observability snapshot (see below).                                          |
+| `GET /venue`            | Server-owned venue contract (geometry + price tiers). _Phase 2, plan 07._    |
+| `GET /seats/status`     | Live seat-status snapshot `{ seatId: status }`. _Phase 2, plan 07._          |
+| `GET /selections/me`    | This visitor's saved selection (by `X-Visitor-Id`). _Phase 2, plan 08._      |
+| `PUT /selections/me`    | Validate + replace this visitor's selection (≤ 8). _Phase 2, plan 08._       |
+| `DELETE /selections/me` | Clear this visitor's selection (`204`). _Phase 2, plan 08._                  |
+| `GET /event`            | Public event/arena metadata for the banner. _Phase 2, plan 10._              |
+| `POST /admin/login`     | Exchange admin credentials for a bearer token (rate-limited). _Plan 10._     |
+| `GET /admin/overview`   | Auth-gated operational overview (selections/seats/cache/traffic). _Plan 10._ |
+| `GET /admin/metrics`    | Auth-gated time-bucketed performance series. _Plan 10._                      |
+| `GET /admin/logs`       | Auth-gated recent requests + errors. _Plan 10._                              |
+| `PUT /admin/event`      | Auth-gated event edit; broadcasts `event-updated` over WS. _Plan 10._        |
+| `GET /health`           | Liveness check.                                                              |
 
 `GET /cache-status` returns `size`, `hits`, `misses`, `hitRate`,
 `averageResponseTimeMs`, `stalePurges`, `clears`, `inFlight`, and `queue`.
 
-## Architecture
+### Phase 2 — backend-owned seat status (plan 07, pillar 1)
+
+Phase 2 splits the two concerns that used to ship together in `venue.json`:
+
+- **Geometry + price tiers** stay defined by the venue document (the contract),
+  now owned server-side at [`src/data/venue.json`](src/data/venue.json) and served
+  by `GET /venue`. It is Zod-validated on boot (`services/venue.service.ts`).
+- **Live seat status** (`available` / `reserved` / `sold` / `held`) becomes a
+  mutable in-memory map seeded from that document
+  (`services/seat-status.service.ts`) and served by `GET /seats/status`.
+
+The store is deliberately broadcast- and TTL-agnostic: the WebSocket channel and
+optimistic-hold model (gates G3/G4) plug into `SeatStatusService.setStatus` in
+plan 09 without a rewrite. From here on the backend is the source of truth for
+status; `venue.json` status is seed-only.
+
+### Phase 3 — persistent selections & visitor sessions (plan 08)
+
+A visitor's seat selection is saved server-side and retrievable later from the
+same browser **with no login**:
+
+- **Visitor identity (gate G1).** A `visitor-id` middleware
+  (`middleware/visitor-id.ts`, scoped to `/selections`) reads an opaque
+  `X-Visitor-Id` header, minting a UUID when absent and echoing it back so a
+  first-time client can keep it. The id only addresses a record — no trust is
+  derived from it. Trade-off: clearing browser storage loses the handle (the
+  documented cost of having no accounts).
+- **Durability (gate G2).** Selections live in `SelectionRepository`
+  (`repositories/selection.repository.ts`), a mock DB backed by a versioned,
+  Zod-validated JSON file (`backend/.data/state.json`, override via
+  `GETMYSEAT_STATE_FILE`). Writes are debounced and atomic (temp file → rename);
+  a corrupt file falls back to the seed and logs a warning. Persistence stays a
+  repository concern via the reusable `JsonFileStore` — services never know
+  whether storage is memory- or file-backed.
+- **Validation mirrors the client.** `SelectionService` re-checks every seat id
+  against the live venue + current status (reject unknown, non-`available`, or
+  > 8 seats) so the server-side rules never disagree with the frontend's
+  > `toggleSeat` guards. `MAX_SELECTION = 8` is duplicated in both READMEs by
+  > design.
+- **Rate limiting (decision gate 3).** The selection endpoints stay under the
+  existing shared limiter; the frontend debounces `PUT`s so frequent toggles
+  coalesce well within the burst window.
+
+### Phase 2 — observability, admin & events (plan 10)
+
+Built additively on the existing logging and cache metrics — not a parallel
+system — and mounted so it never alters the user/cache endpoints' behavior.
+
+- **Metrics (gate G6).** `MetricsService` (`services/metrics.service.ts`) keeps a
+  time-bucketed ring buffer (one bucket per `METRICS_BUCKET_MS`, retained for
+  `METRICS_RETAIN_BUCKETS`) with request count, 4xx/5xx counts, average/max
+  response time, and cache hit rate. A `metrics` middleware records each response
+  on `finish` using `process.hrtime`, reading the `X-Cache` header for the cache
+  outcome. Memory stays bounded by construction.
+- **Logs.** `LogBuffer` (`services/log-buffer.ts`) holds bounded recent-request
+  and recent-error rings; errors are also captured by
+  `createErrorHandler(logBuffer)`.
+- **Admin auth (gate G5) — demo-grade, _not_ production.** `AdminAuthService`
+  exchanges a single env credential pair (`ADMIN_EMAIL` / `ADMIN_PASSWORD`,
+  defaults `admin@getmyseat.local` / `change-me`) for an opaque in-memory bearer
+  token using a constant-time compare (`crypto.timingSafeEqual`). Tokens expire
+  after `ADMIN_TOKEN_TTL_MS`. Login is rate-limited by a dedicated limiter
+  (`middleware/require-admin.ts`). There are no user accounts, password hashing,
+  refresh tokens, or persistence — a production version would replace this with a
+  real identity provider.
+- **Events (gate G2).** `EventRepository` persists the event/arena metadata to a
+  versioned JSON file (override `GETMYSEAT_EVENT_FILE`). `PUT /admin/event`
+  updates it and broadcasts an `event-updated` message over the existing
+  WebSocket, so the public banner updates without a reload.
 
 Request handlers stay thin; all coordination lives in services.
 
@@ -108,8 +189,11 @@ rate limiter to a shared store (e.g. Redis) and the queue to a durable broker.
 
 ## Tests
 
-16 tests across 4 files: `cache.service` (hit rate, cumulative timing, active
-stale purge, counter-preserving clear), `request-deduper` (single in-flight
-share, cleanup on rejection), `users.api` (cache HIT/MISS, 404, concurrent
-dedupe, queued POST round-trip, validation, cache-status, clear), and
-`rate-limit.api` (burst limit + `429` metadata).
+62 tests cover the user/cache core (`cache.service`, `request-deduper`,
+`users.api`, `rate-limit.api`) plus the Phase 2 work: `seat-status.service`,
+`venue.api`, `selections.api` + `selection.repository` (plan 08), `hold.service`
+
+- `realtime.ws` (plan 09), and `metrics.service`, `admin-auth.service`,
+  `admin.api`, `event.repository` (plan 10 — login/overview/metrics/logs, event
+  persistence and restart durability, and the `event-updated` WebSocket
+  broadcast).

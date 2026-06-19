@@ -52,7 +52,7 @@ const sections = sectionDefs.map((def) => ({
 
 const venue = {
     venueId: "getmyseat-arena",
-    name: "GetMySeat Arena (sample)",
+    name: "GetMySeat Arena",
     currency: "USD",
     map: { width: 1280, height: 1040 },
     priceTiers,

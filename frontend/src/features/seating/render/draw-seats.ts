@@ -29,6 +29,21 @@ export interface DrawOptions {
   transform: ViewportTransform;
   /** Set of currently selected seat ids (selection overrides status color). */
   selected: ReadonlySet<SeatId>;
+  /**
+   * Live seat status (plan 09). The single status source: the server snapshot +
+   * WebSocket deltas, falling back to the venue seed. When omitted, `seat.status`
+   * is used (keeps older call sites working).
+   */
+  liveStatus?: ReadonlyMap<SeatId, SeatStatus>;
+  /** When true, colour seats by price tier instead of status (plan 09 heat-map). */
+  heatmap?: boolean;
+  /**
+   * Recently-changed seats → change timestamp (ms). Drives a brief status-change
+   * pulse (plan 09 animation gate: a cheap fading ring). Requires `now`.
+   */
+  pulses?: ReadonlyMap<SeatId, number>;
+  /** Current animation clock (ms). Paired with `pulses`. */
+  now?: number;
   /** Optional focused seat id to render with a focus ring (keyboard a11y). */
   focusedSeatId?: SeatId;
   /** Device pixel ratio for crisp rendering on HiDPI displays. */
@@ -37,6 +52,9 @@ export interface DrawOptions {
   width: number;
   height: number;
 }
+
+/** How long a status-change pulse animates (ms). */
+export const PULSE_DURATION_MS = 600;
 
 /**
  * Status → CSS color resolved from the design tokens in `index.css`. Reading the
@@ -56,6 +74,29 @@ function statusColors(): Record<SeatStatus | "selected" | "focusRing", string> {
   };
 }
 
+/** Deterministic fallback palette for price tiers without an explicit color. */
+const HEATMAP_FALLBACK = [
+  "#ef4444",
+  "#f97316",
+  "#eab308",
+  "#22c55e",
+  "#3b82f6",
+];
+
+/** Build a `priceTierId → color` map for heat-map mode (plan 09, Phase 3). */
+function heatmapColors(venue: NormalizedVenue): Map<string, string> {
+  const colors = new Map<string, string>();
+  let i = 0;
+  for (const tier of venue.priceTiersById.values()) {
+    colors.set(
+      tier.id,
+      tier.color ?? HEATMAP_FALLBACK[i % HEATMAP_FALLBACK.length]!,
+    );
+    i += 1;
+  }
+  return colors;
+}
+
 /**
  * Draw the full seat population for the current frame. Offscreen seats are culled.
  * This is a correctness-first baseline; sprite/atlas batching (plan 03, Phase 3)
@@ -65,9 +106,21 @@ export function drawSeats(
   ctx: CanvasRenderingContext2D,
   opts: DrawOptions,
 ): void {
-  const { venue, transform, selected, focusedSeatId, dpr, width, height } =
-    opts;
+  const {
+    venue,
+    transform,
+    selected,
+    liveStatus,
+    heatmap = false,
+    pulses,
+    now,
+    focusedSeatId,
+    dpr,
+    width,
+    height,
+  } = opts;
   const colors = statusColors();
+  const tierColors = heatmap ? heatmapColors(venue) : undefined;
 
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.clearRect(0, 0, width, height);
@@ -94,11 +147,42 @@ export function drawSeats(
       continue;
     }
 
+    const status = liveStatus?.get(seat.id) ?? seat.status;
     const isSelected = selected.has(seat.id);
+
     ctx.beginPath();
     ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
-    ctx.fillStyle = isSelected ? colors.selected : colors[seat.status];
+    if (isSelected) {
+      // Selection always wins so the local user's own holds stay distinct from
+      // seats held by other visitors (plan 09 visual-distinctness rule).
+      ctx.fillStyle = colors.selected;
+    } else if (tierColors) {
+      ctx.fillStyle = tierColors.get(seat.priceTierId) ?? colors[status];
+    } else {
+      ctx.fillStyle = colors[status];
+    }
     ctx.fill();
+
+    // Brief status-change pulse: an expanding, fading ring around the seat.
+    if (pulses && now !== undefined) {
+      const startedAt = pulses.get(seat.id);
+      if (startedAt !== undefined) {
+        const t = (now - startedAt) / PULSE_DURATION_MS;
+        if (t >= 0 && t < 1) {
+          ctx.save();
+          ctx.globalAlpha = 1 - t;
+          ctx.lineWidth = 2;
+          ctx.strokeStyle =
+            colors[status] === colors.available
+              ? colors.available
+              : colors[status];
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, r + t * r * 1.5, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+    }
 
     if (seat.id === focusedSeatId) {
       ctx.lineWidth = 3;

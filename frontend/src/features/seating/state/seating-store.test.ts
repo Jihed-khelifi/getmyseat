@@ -44,7 +44,7 @@ describe("selection guard", () => {
   });
 
   it("rejects non-available seats", () => {
-    const verdict = canSelectSeat(venue, new Set(), "seat-sold");
+    const verdict = canSelectSeat(venue, new Map(), new Set(), "seat-sold");
     expect(verdict).toEqual({ ok: false, reason: "not-selectable" });
   });
 
@@ -52,7 +52,7 @@ describe("selection guard", () => {
     const full = new Set(
       Array.from({ length: MAX_SELECTION }, (_, i) => `seat-${i + 1}`),
     );
-    expect(canSelectSeat(venue, full, "seat-9")).toEqual({
+    expect(canSelectSeat(venue, new Map(), full, "seat-9")).toEqual({
       ok: false,
       reason: "limit-reached",
     });
@@ -62,7 +62,9 @@ describe("selection guard", () => {
     const full = new Set(
       Array.from({ length: MAX_SELECTION }, (_, i) => `seat-${i + 1}`),
     );
-    expect(canSelectSeat(venue, full, "seat-1")).toEqual({ ok: true });
+    expect(canSelectSeat(venue, new Map(), full, "seat-1")).toEqual({
+      ok: true,
+    });
   });
 
   it("computes subtotal across the selection", () => {

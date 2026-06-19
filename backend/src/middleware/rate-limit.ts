@@ -5,8 +5,8 @@ import { config } from "../config.js";
 
 /**
  * Two coordinated fixed windows, both keyed by client IP:
- *   - burst:     5 requests / 10s
- *   - sustained: 10 requests / 60s
+ *   - burst:     15 requests / 10s
+ *   - sustained: 30 requests / 60s
  *
  * A request must satisfy both windows. The configuration lives in one place
  * ({@link config.rateLimit}) so the model is easy to explain and adjust.

@@ -44,6 +44,7 @@ src/
     state/
       seating-store.ts        # Zustand store; single toggleSeat() mutation path
       persistence.ts          # venueId-scoped, validated localStorage selection
+      selection-sync.ts       # server-backed sync: hydrate + debounced PUT (plan 08)
     render/
       viewport.ts             # the ONLY world ⇄ screen transform math
       hit-testing.ts          # d3-quadtree spatial index (pointer → seat)
@@ -53,6 +54,7 @@ src/
       announcements.ts        # pure aria-live message builders
   lib/
     storage.ts                # safe localStorage wrapper
+    api.ts                    # typed backend client + visitor handle (plan 08)
     utils.ts                  # cn() class merge helper
 ```
 
@@ -76,6 +78,48 @@ src/
 - **Untrusted persisted state.** Restored selections are validated with Zod and
   reconciled against the freshly loaded venue (existence + status) before use, and
   are scoped by `venueId`.
+
+## Server-backed selections (plan 08)
+
+Selections persist server-side so a visitor can return on the **same browser**
+and pick up where they left off — **no login**:
+
+- **Visitor handle (gate G1).** `lib/api.ts` generates an opaque UUID, keeps it in
+  `localStorage`, and sends it as `X-Visitor-Id` on every request. The API client
+  is the single place the frontend talks to the backend (centralized fetch + error
+  normalization), framework-agnostic so it unit-tests without React.
+- **Sync without a second mutation path.** `state/selection-sync.ts` only
+  _observes_ the store: on load it hydrates from `GET /selections/me` (server wins
+  when a record exists; otherwise a local selection is pushed up), then a
+  subscription debounces a `PUT` on every change. `toggleSeat` stays the one
+  mutation path; `localStorage` remains an instant optimistic cache + offline
+  fallback, and a failed network call never corrupts local state.
+- **"View later" affordance.** `ViewLaterNote` shows the copyable visitor handle
+  and explains that selections persist on this browser. Trade-off: clearing
+  storage loses the handle (the cost of no accounts).
+- **Base URL.** `VITE_API_URL` (defaults to `/api`, proxied to the backend by the
+  Vite dev server — see `vite.config.ts`). The 8-seat cap (`MAX_SELECTION`) is
+  mirrored server-side so the two never disagree.
+
+## Admin, events & observability (plan 10)
+
+- **Routing.** A minimal path-based router in `main.tsx` lazy-loads the `/admin`
+  page so the operator UI never weighs down the seat-map bundle; every other path
+  renders the seat map.
+- **Admin console (`features/admin/`).** `AdminLogin` exchanges the operator
+  credentials for a bearer token (kept in tab-scoped `sessionStorage`), and
+  `AdminDashboard` polls `GET /admin/overview|/metrics|/logs` to show live
+  selection/seat/cache/traffic stats, a per-bucket performance table, and recent
+  request/error logs. `EventEditor` saves the event via `PUT /admin/event`. A
+  `401` from any call returns the operator to the login form. The auth is
+  **demo-grade** (single shared credential) — see the backend README.
+- **Live event banner.** `EventBanner` fetches `GET /event` on mount and also
+  accepts a `live` prop; `App` feeds it `event-updated` messages from the existing
+  WebSocket (`state/seat-status-sync.ts` `onEvent` hook), so an admin edit appears
+  for users without a reload.
+- **shadcn/ui.** The admin UI is built from real shadcn primitives in
+  `src/components/ui/` (`button`, `input`, `label`, `card`, `textarea`, `table`),
+  backed by `radix-ui` and `class-variance-authority`.
 
 ## Interaction & gestures
 
@@ -114,7 +158,7 @@ once into lookup maps and ordered collections.
 
 ## Tested behaviors
 
-Run with `pnpm --filter frontend test` (Vitest + Testing Library, 32 tests).
+Run with `pnpm --filter frontend test` (Vitest + Testing Library, 63 tests).
 
 - `viewport.test.ts` — world/screen round-trip, fit-to-viewport, focal-point zoom.
 - `seating-store.test.ts` — status guard, 8-seat cap, deselect-always-allowed,
@@ -126,6 +170,11 @@ Run with `pnpm --filter frontend test` (Vitest + Testing Library, 32 tests).
   clamping across uneven rows, key mapping.
 - `SeatDetailsSheet.test.tsx` — focused-seat details, select/remove flow, subtotal,
   sold-seat guard, and clear-selection.
+- `api.test.ts` — visitor-handle generation/persistence, header attachment,
+  success parsing, `ApiError` on non-2xx, and server-minted handle capture.
+- `selection-sync.test.ts` — debounced `PUT` driven only by `toggleSeat`,
+  unsubscribe stops syncing, server-wins hydration (dropping stale ids), local
+  push-up when no server record, and graceful degrade on a failed load.
 
 ## Known limitations / deferred
 
@@ -137,8 +186,9 @@ Run with `pnpm --filter frontend test` (Vitest + Testing Library, 32 tests).
   with `pnpm --filter frontend dev`; the hybrid canvas render and zoom-gated
   labels are the architectural guard for large-map performance. See
   [plan 06](../plans/06-verification-risks-and-decisions.md#verification-run-results).
-- shadcn UI primitives are configured (`components.json`) but only the components
-  needed so far are hand-written; add more via the shadcn CLI as needed.
+- shadcn UI primitives live in `src/components/ui/` (`components.json` configured,
+  new-york style); the set needed so far (`button`, `input`, `label`, `card`,
+  `textarea`, `table`) is present — add more via the shadcn CLI as needed.
 - Sprite/atlas seat batching, heat-map by price tier, adjacent-seat finder, and a
   full dark-mode toggle are stretch items (plan 03, Phase 6).
 - `public/venue.json` is a generated sample; swap in the official dataset when

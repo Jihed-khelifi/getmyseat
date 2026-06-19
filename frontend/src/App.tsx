@@ -3,8 +3,21 @@ import { SeatMap } from "@/components/seat-map/SeatMap";
 import { SeatLegend } from "@/components/seat-map/SeatLegend";
 import { SeatDetailsSheet } from "@/components/seat-map/SeatDetailsSheet";
 import { AnnouncementRegion } from "@/components/seat-map/AnnouncementRegion";
+import { ViewLaterNote } from "@/components/seat-map/ViewLaterNote";
+import { ThemeToggle } from "@/components/seat-map/ThemeToggle";
+import { AdjacentSeatsControl } from "@/components/seat-map/AdjacentSeatsControl";
+import { EventBanner } from "@/components/seat-map/EventBanner";
 import { loadVenue } from "@/features/seating/model/seat-validation";
 import { useSeatingStore } from "@/features/seating/state/seating-store";
+import {
+  hydrateSelection,
+  startSelectionSync,
+} from "@/features/seating/state/selection-sync";
+import {
+  applyServerMessage,
+  startSeatStatusSync,
+} from "@/features/seating/state/seat-status-sync";
+import { getSeatStatus, type EventInfo } from "@/lib/api";
 
 type LoadState =
   | { status: "loading" }
@@ -19,11 +32,14 @@ type LoadState =
  */
 export default function App() {
   const [load, setLoad] = useState<LoadState>({ status: "loading" });
+  const [liveEvent, setLiveEvent] = useState<EventInfo | null>(null);
   const setVenue = useSeatingStore((s) => s.setVenue);
   const venue = useSeatingStore((s) => s.venue);
 
   useEffect(() => {
     let cancelled = false;
+    let stopSync: (() => void) | undefined;
+    let stopStatusSync: (() => void) | undefined;
     (async () => {
       try {
         const res = await fetch(`${import.meta.env.BASE_URL}venue.json`);
@@ -34,6 +50,25 @@ export default function App() {
         if (cancelled) return;
         setVenue(normalized);
         setLoad({ status: "ready" });
+
+        // Plan 09: backend owns live seat status. Pull the snapshot, then open
+        // the WebSocket for deltas (which also re-snapshots on every reconnect).
+        const store = useSeatingStore;
+        try {
+          const snapshot = await getSeatStatus();
+          if (cancelled) return;
+          applyServerMessage(store, { type: "snapshot", statuses: snapshot });
+        } catch {
+          // No backend yet: fall back to the venue.json-seeded status.
+        }
+        stopStatusSync = startSeatStatusSync(store, {
+          onEvent: (event) => setLiveEvent(event),
+        });
+
+        // Plan 08: server is authoritative on load, then mirror local changes.
+        await hydrateSelection(store);
+        if (cancelled) return;
+        stopSync = startSelectionSync(store);
       } catch (err) {
         if (cancelled) return;
         setLoad({
@@ -44,6 +79,8 @@ export default function App() {
     })();
     return () => {
       cancelled = true;
+      stopSync?.();
+      stopStatusSync?.();
     };
   }, [setVenue]);
 
@@ -56,7 +93,10 @@ export default function App() {
             {venue ? venue.name : "Loading venue…"}
           </p>
         </div>
-        <SeatLegend className="hidden md:flex" />
+        <div className="flex items-center gap-3">
+          <SeatLegend className="hidden md:flex" />
+          <ThemeToggle />
+        </div>
       </header>
 
       <main className="flex min-h-0 flex-1 flex-col gap-4 p-4 lg:flex-row">
@@ -79,7 +119,12 @@ export default function App() {
 
         {/* Desktop: persistent side panel. */}
         <div className="hidden flex-col gap-4 lg:flex lg:w-80">
+          <EventBanner live={liveEvent} />
           <SeatDetailsSheet className="lg:flex-1" />
+          {load.status === "ready" && (
+            <AdjacentSeatsControl className="rounded-lg border bg-card p-4" />
+          )}
+          {load.status === "ready" && <ViewLaterNote />}
         </div>
       </main>
 
@@ -97,7 +142,9 @@ export default function App() {
           </div>
           <div className="space-y-4 p-4 pt-3">
             <SeatLegend className="flex md:hidden" />
+            <EventBanner live={liveEvent} />
             <SeatDetailsSheet bare />
+            <AdjacentSeatsControl />
           </div>
         </div>
       )}

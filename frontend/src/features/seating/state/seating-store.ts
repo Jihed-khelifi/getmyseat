@@ -14,6 +14,7 @@ import {
   SELECTABLE_STATUSES,
   type NormalizedVenue,
   type SeatId,
+  type SeatStatus,
   type SelectionSummary,
   type ViewportTransform,
 } from "../model/seat-types";
@@ -24,16 +25,34 @@ export type SelectionRejection =
   | { ok: true }
   | { ok: false; reason: "not-selectable" | "limit-reached" | "unknown-seat" };
 
+/** A seat's live status: the server-fed value wins over the venue.json seed. */
+export type LiveStatus = ReadonlyMap<SeatId, SeatStatus>;
+
+/**
+ * Effective status for a seat (plan 09): once the backend snapshot/deltas arrive
+ * the store's `liveStatus` is authoritative; before then it falls back to the
+ * `venue.json` seed so behavior is unchanged on first paint.
+ */
+export function effectiveStatus(
+  venue: NormalizedVenue,
+  liveStatus: LiveStatus,
+  seatId: SeatId,
+): SeatStatus | undefined {
+  return liveStatus.get(seatId) ?? venue.seatsById.get(seatId)?.status;
+}
+
 /** Pure guard: may this seat be added to the current selection? */
 export function canSelectSeat(
   venue: NormalizedVenue,
+  liveStatus: LiveStatus,
   selected: ReadonlySet<SeatId>,
   seatId: SeatId,
 ): SelectionRejection {
   const seat = venue.seatsById.get(seatId);
   if (!seat) return { ok: false, reason: "unknown-seat" };
   if (selected.has(seatId)) return { ok: true }; // deselect is always allowed
-  if (!SELECTABLE_STATUSES.includes(seat.status)) {
+  const status = effectiveStatus(venue, liveStatus, seatId);
+  if (status === undefined || !SELECTABLE_STATUSES.includes(status)) {
     return { ok: false, reason: "not-selectable" };
   }
   if (selected.size >= MAX_SELECTION)
@@ -83,16 +102,22 @@ export function computeSummary(
   };
 }
 
-/** Keep only persisted ids that still exist and are still selectable. */
+/**
+ * Keep only persisted ids that still exist and are still selectable. Seats the
+ * visitor already holds come back from the server as `held`, so `held` is also
+ * accepted here (otherwise a restored selection would be dropped on reconnect).
+ */
 function reconcilePersisted(
   venue: NormalizedVenue,
+  liveStatus: LiveStatus,
   ids: SeatId[],
 ): Set<SeatId> {
   const next = new Set<SeatId>();
   for (const id of ids) {
     if (next.size >= MAX_SELECTION) break;
-    const seat = venue.seatsById.get(id);
-    if (seat && SELECTABLE_STATUSES.includes(seat.status)) next.add(id);
+    if (!venue.seatsById.has(id)) continue;
+    const status = effectiveStatus(venue, liveStatus, id);
+    if (status === "available" || status === "held") next.add(id);
   }
   return next;
 }
@@ -100,50 +125,111 @@ function reconcilePersisted(
 export interface SeatingState {
   venue: NormalizedVenue | undefined;
   selectedSeatIds: Set<SeatId>;
+  /**
+   * Live seat status (plan 09). Seeded from the venue on load, then replaced by
+   * the backend snapshot and updated by WebSocket deltas — the single status
+   * source the canvas and guards read from (no longer `venue.json`).
+   */
+  liveStatus: LiveStatus;
   transform: ViewportTransform;
   focusedSeatId: SeatId | undefined;
   /** Last rejected action, surfaced to aria-live for accessible feedback. */
   lastRejection: (SelectionRejection & { ok: false }) | undefined;
+  /** Heat-map mode: colour seats by price tier instead of status (plan 09). */
+  heatmap: boolean;
 
   /** Load a venue and rehydrate any persisted, still-valid selection. */
   setVenue: (venue: NormalizedVenue) => void;
+  /** Replace the whole live-status map from a backend snapshot (plan 09). */
+  applyStatusSnapshot: (snapshot: Record<SeatId, SeatStatus>) => void;
+  /** Apply a single live status delta from the WebSocket channel (plan 09). */
+  applyStatusDelta: (seatId: SeatId, status: SeatStatus) => void;
+  /**
+   * Replace the current selection from a server-authoritative set (plan 08).
+   * Bulk restore path — reconciled against the live venue + status — kept
+   * separate from the per-seat `toggleSeat` mutation, exactly like the
+   * localStorage rehydration in `setVenue`.
+   */
+  rehydrateSelection: (seatIds: SeatId[]) => void;
   /** The one selection mutation path (select if absent, deselect if present). */
   toggleSeat: (seatId: SeatId) => void;
   clearSelection: () => void;
   setTransform: (transform: ViewportTransform) => void;
   setFocusedSeat: (seatId: SeatId | undefined) => void;
   acknowledgeRejection: () => void;
+  /** Toggle the price-tier heat-map overlay (plan 09, Phase 3). */
+  toggleHeatmap: () => void;
 }
 
 export const useSeatingStore = create<SeatingState>((set, get) => ({
   venue: undefined,
   selectedSeatIds: new Set(),
+  liveStatus: new Map(),
   transform: IDENTITY_TRANSFORM,
   focusedSeatId: undefined,
   lastRejection: undefined,
+  heatmap: false,
 
   setVenue: (venue) => {
+    // Seed live status from the venue document so the map renders correctly
+    // before the backend snapshot arrives; the snapshot then takes over.
+    const liveStatus = new Map<SeatId, SeatStatus>(
+      venue.seatOrder.map((seat) => [seat.id, seat.status]),
+    );
     const persisted = loadPersistedSelection(venue.venueId);
     const selectedSeatIds = persisted
-      ? reconcilePersisted(venue, persisted.selectedSeatIds)
+      ? reconcilePersisted(venue, liveStatus, persisted.selectedSeatIds)
       : new Set<SeatId>();
     set({
       venue,
+      liveStatus,
       selectedSeatIds,
       focusedSeatId: undefined,
       lastRejection: undefined,
     });
   },
 
+  applyStatusSnapshot: (snapshot) => {
+    const { venue } = get();
+    const next = new Map<SeatId, SeatStatus>();
+    // Keep only seats the venue knows about; ignore stray ids defensively.
+    for (const [seatId, status] of Object.entries(snapshot)) {
+      if (!venue || venue.seatsById.has(seatId)) next.set(seatId, status);
+    }
+    set({ liveStatus: next });
+  },
+
+  applyStatusDelta: (seatId, status) => {
+    const { venue, liveStatus } = get();
+    if (venue && !venue.seatsById.has(seatId)) return;
+    if (liveStatus.get(seatId) === status) return;
+    const next = new Map(liveStatus);
+    next.set(seatId, status);
+    set({ liveStatus: next });
+  },
+
+  rehydrateSelection: (seatIds) => {
+    const { venue, liveStatus } = get();
+    if (!venue) return;
+    const next = reconcilePersisted(venue, liveStatus, seatIds);
+    set({ selectedSeatIds: next, lastRejection: undefined });
+    // Keep the localStorage cache in step with the restored server state.
+    savePersistedSelection({
+      version: 1,
+      venueId: venue.venueId,
+      selectedSeatIds: [...next],
+    });
+  },
+
   toggleSeat: (seatId) => {
-    const { venue, selectedSeatIds } = get();
+    const { venue, liveStatus, selectedSeatIds } = get();
     if (!venue) return;
     const next = new Set(selectedSeatIds);
 
     if (next.has(seatId)) {
       next.delete(seatId);
     } else {
-      const verdict = canSelectSeat(venue, next, seatId);
+      const verdict = canSelectSeat(venue, liveStatus, next, seatId);
       if (!verdict.ok) {
         set({ lastRejection: verdict });
         return;
@@ -174,4 +260,5 @@ export const useSeatingStore = create<SeatingState>((set, get) => ({
   setTransform: (transform) => set({ transform }),
   setFocusedSeat: (focusedSeatId) => set({ focusedSeatId }),
   acknowledgeRejection: () => set({ lastRejection: undefined }),
+  toggleHeatmap: () => set((s) => ({ heatmap: !s.heatmap })),
 }));

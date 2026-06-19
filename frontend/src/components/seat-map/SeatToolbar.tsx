@@ -1,4 +1,4 @@
-import { Minus, Plus, Maximize } from "lucide-react";
+import { Minus, Plus, Maximize, Thermometer } from "lucide-react";
 import { useSeatingStore } from "@/features/seating/state/seating-store";
 import {
   clampScale,
@@ -19,12 +19,15 @@ interface SeatToolbarProps {
 /**
  * Zoom controls and reset-view (plan 02 mobile fallback + plan 03 Phase 5).
  * Buttons mutate the shared viewport transform via the store, reusing the same
- * `viewport.ts` math as pointer/pinch zoom so behavior stays consistent.
+ * `viewport.ts` math as pointer/pinch zoom so behavior stays consistent. Also
+ * hosts the heat-map toggle (plan 09, Phase 3).
  */
 export function SeatToolbar({ viewport, className }: SeatToolbarProps) {
   const transform = useSeatingStore((s) => s.transform);
   const setTransform = useSeatingStore((s) => s.setTransform);
   const venue = useSeatingStore((s) => s.venue);
+  const heatmap = useSeatingStore((s) => s.heatmap);
+  const toggleHeatmap = useSeatingStore((s) => s.toggleHeatmap);
 
   const center = { x: viewport.width / 2, y: viewport.height / 2 };
 
@@ -49,7 +52,7 @@ export function SeatToolbar({ viewport, className }: SeatToolbarProps) {
     <div
       className={cn("flex gap-1", className)}
       role="group"
-      aria-label="Map zoom controls"
+      aria-label="Map controls"
     >
       <button
         type="button"
@@ -74,6 +77,15 @@ export function SeatToolbar({ viewport, className }: SeatToolbarProps) {
         aria-label="Reset view"
       >
         <Maximize className="size-4" aria-hidden />
+      </button>
+      <button
+        type="button"
+        className={cn(btn, heatmap && "bg-accent text-accent-foreground")}
+        onClick={toggleHeatmap}
+        aria-label="Toggle price heat-map"
+        aria-pressed={heatmap}
+      >
+        <Thermometer className="size-4" aria-hidden />
       </button>
     </div>
   );
